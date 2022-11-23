@@ -18,7 +18,7 @@ if __name__ == "__main__":
     img1 = cv2.imread(img1_filename)
     img2 = cv2.imread(img2_filename)
     point_pairs = get_matches(img1_filename, img2_filename, visualize=False)
-    point_pairs = [((pt1[1], pt1[0]), (pt2[1], pt2[0])) for pt1, pt2 in point_pairs]
+    point_pairs = [((pt1[1], pt1[0]), (pt2[1], pt2[0])) for pt1, pt2 in point_pairs]  # Reverse to opencv format
     point_pairs = ransac(point_pairs)
 
     stitched_img = stitch_images(img1, img2, point_pairs)
