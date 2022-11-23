@@ -2,6 +2,7 @@ from stitching import find_projective_transformation
 import numpy as np
 
 
+# Tests for finding the projective transformation (task 3)
 def test_find_projective_transformation():
     # Repeat test multiple times
     for _ in range(100_000):

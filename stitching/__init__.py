@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 
 
-# Apply projective transformation to the image
+# Apply projective transformation to the image (task 2)
 def transform(img: np.ndarray, transformation: np.ndarray):
     if transformation.shape != (3, 3):
         raise ValueError(f'Transformation should be a 3x3 matrix. Got shape {transformation.shape}')
@@ -36,6 +36,7 @@ def transform(img: np.ndarray, transformation: np.ndarray):
     return result, bbox_min[:2]
 
 
+# Find projective transformation using pairs of matching keypoints (task 3)
 def find_projective_transformation(matching_points):
     matching_points = [(np.array([pt1[0], pt1[1], 1]), np.array([pt2[0], pt2[1], 1])) for pt1, pt2 in matching_points]
     mtx = np.zeros((len(matching_points) * 2, 9))
@@ -48,6 +49,7 @@ def find_projective_transformation(matching_points):
     return np.reshape(v[-1, :], (3, 3))
 
 
+# Weightmask used for calculating weighted average for overlapping part of stitched image (task 5)
 def generate_weightmask(shape):
     result = np.zeros((shape[0], shape[1], 3), dtype=np.uint8)
     for i in range(shape[0]):
@@ -95,6 +97,7 @@ def stitch_images(img1, img2, matched_points):
     return stitched_img
 
 
+# RANSAC on matching keypoints with projective transformation (task 7)
 def ransac(matching_points, n=5, k=100, t=1):
     iterations = 0
     best_point_count = 0

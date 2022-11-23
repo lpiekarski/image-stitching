@@ -10,6 +10,7 @@ def get_arg_or_default(num, default):
     return default
 
 
+# task 7
 if __name__ == "__main__":
     cv2.namedWindow("Image Stitching")
     img1_filename = get_arg_or_default(1, 'examples/undistorted000.png')
