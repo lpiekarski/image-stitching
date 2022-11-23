@@ -11,8 +11,8 @@ Example 000:
 
 Example 001:
 
-![distorted000](examples/distorted000.png)
-![undistorted000](examples/undistorted000.png)
+![distorted001](examples/distorted001.png)
+![undistorted001](examples/undistorted001.png)
 
 If you wish to take your own photos using ESP32-CAM you can capture them using `image_capture.py` script. You can take a screenshot with the space bar.
 The repository also contains `examples/matching_points_000_001.txt` - 5 pairs of matching keypoints between images `examples/undistorted000.png` and `examples/undistorted001.png` picked by hand.
